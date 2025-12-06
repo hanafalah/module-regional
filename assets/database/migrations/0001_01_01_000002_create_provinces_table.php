@@ -27,7 +27,7 @@ return new class extends Migration
         $table_name = $this->__table->getTable();
         if (!$this->isTableExists()) {
             Schema::create($table_name, function (Blueprint $table) {
-                $table->id();
+                $table->ulid('id');
                 $table->string('code', 100)->nullable(true);
                 $table->string('name', 100)->nullable(false);
                 $table->string('latitude', 50)->nullable();
@@ -36,7 +36,10 @@ return new class extends Migration
             });
 
             $provinces = include(__DIR__ . '/data/provinces.php');
-            ModuleRegional::useProvince()->adds($provinces);
+            $province_model = app(config('database.models.Province'));
+            foreach ($provinces as $province) {
+                $province_model->updateOrCreate($province);
+            }
         }
     }
 

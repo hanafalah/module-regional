@@ -7,7 +7,7 @@
     },
     "authors": [
         {
-            "name": "hamzah",
+            "name": "hamzah nur al falah",
             "email": "hamzahnafalah@gmail.com"
         }
     ],
@@ -19,9 +19,6 @@
         }
     },
     "require": {
-        "hanafalah/laravel-has-props": "1.x",
-        "hanafalah/laravel-support": "1.x"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": false
+        "hanafalah/laravel-support": "dev-main"
+    }
 }
